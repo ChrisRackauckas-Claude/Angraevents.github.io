@@ -5,7 +5,7 @@ title: Angra Events - What's Happening in Angra do Heroísmo
 
 <div class="section">
 
-## Weekly Events
+<h2>Weekly Events</h2>
 
 <p class="section-intro">Recurring events happening every week around Angra do Heroísmo.</p>
 
@@ -31,7 +31,7 @@ title: Angra Events - What's Happening in Angra do Heroísmo
 
 <div class="section">
 
-## Special Events
+<h2>Special Events</h2>
 
 <p class="section-intro">One-off concerts, parties, and special nights.</p>
 
