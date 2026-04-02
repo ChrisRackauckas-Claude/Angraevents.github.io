@@ -15,10 +15,12 @@ title: Angra Events - What's Happening in Angra do Heroísmo
   <div class="day-events">
     {% for event in day.events %}
     <div class="event-card">
-      <div class="event-name">{{ event.name }}</div>
-      <div class="event-venue">{{ event.venue }}</div>
+      <div class="event-info">
+        <div class="event-name">{{ event.name }}</div>
+        <div class="event-venue">{{ event.venue }}</div>
+        <div class="event-description">{{ event.description }}</div>
+      </div>
       <div class="event-time">{{ event.time }}</div>
-      <div class="event-description">{{ event.description }}</div>
     </div>
     {% endfor %}
   </div>
@@ -52,6 +54,6 @@ title: Angra Events - What's Happening in Angra do Heroísmo
 </div>
 {% endfor %}
 
-<p><a href="{{ '/special' | relative_url }}">View all special events &rarr;</a></p>
+<p><a class="view-all" href="{{ '/special' | relative_url }}">View all special events &rarr;</a></p>
 
 </div>

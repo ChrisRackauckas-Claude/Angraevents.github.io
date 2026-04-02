@@ -1,11 +1,20 @@
 :root {
-  --primary: #1a4d6e;
-  --accent: #e67e22;
-  --bg: #fafafa;
-  --card-bg: #ffffff;
-  --text: #333333;
-  --text-light: #666666;
-  --border: #e0e0e0;
+  --green-dark: #1a3a2a;
+  --green-deep: #234d35;
+  --green-mid: #2d6a4f;
+  --green-bright: #40916c;
+  --green-light: #52b788;
+  --green-pale: #b7e4c7;
+  --green-wash: #d8f3dc;
+  --cream: #f7f9f4;
+  --white: #ffffff;
+  --text: #1a2e1a;
+  --text-light: #4a6a4a;
+  --text-muted: #6b8a6b;
+  --accent: #d4a843;
+  --accent-light: #f0d78c;
+  --border: #c8dcc8;
+  --shadow: rgba(26, 58, 42, 0.12);
 }
 
 * {
@@ -15,108 +24,183 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--text);
-  background: var(--bg);
-  line-height: 1.6;
+  background: var(--cream);
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
 .container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
 }
 
-/* Header */
+/* ── Hero header with Angra photo ── */
 .site-header {
-  background: var(--primary);
-  color: #fff;
-  padding: 1.5rem 0 1rem;
+  position: relative;
+  background: var(--green-dark);
+  overflow: hidden;
 }
 
-.site-header a {
-  color: #fff;
-  text-decoration: none;
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Angra_do_Hero%C3%ADsmo_-_Sicht_vom_Obelisken_auf_Stadt_und_Hafenbucht_mit_Monte_Brasil.JPG/1280px-Angra_do_Hero%C3%ADsmo_-_Sicht_vom_Obelisken_auf_Stadt_und_Hafenbucht_mit_Monte_Brasil.JPG');
+  background-size: cover;
+  background-position: center 40%;
+  filter: brightness(0.55) saturate(1.2);
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 0 2rem;
+  text-align: center;
 }
 
 .site-title {
-  font-size: 1.8rem;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   margin-bottom: 0.25rem;
 }
 
+.site-title a {
+  color: var(--white);
+  text-decoration: none;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
 .site-tagline {
-  font-size: 0.95rem;
-  opacity: 0.85;
-  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--green-pale);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
 }
 
-.site-header nav {
+/* ── Navigation ── */
+.site-nav {
+  position: relative;
+  z-index: 1;
+  background: rgba(26, 58, 42, 0.85);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.site-nav .container {
   display: flex;
-  gap: 1.5rem;
+  justify-content: center;
+  gap: 0;
 }
 
-.site-header nav a {
-  font-size: 0.9rem;
-  opacity: 0.9;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 0.25rem;
+.site-nav a {
+  color: var(--green-pale);
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.5rem;
+  transition: background 0.2s, color 0.2s;
 }
 
-.site-header nav a:hover {
-  opacity: 1;
-  border-bottom-color: var(--accent);
+.site-nav a:hover,
+.site-nav a.active {
+  background: rgba(82, 183, 136, 0.2);
+  color: var(--white);
 }
 
-/* Main content */
+/* ── Main content ── */
 main {
-  padding: 2rem 0;
+  padding: 2.5rem 0;
   min-height: 60vh;
 }
 
 h2 {
-  font-size: 1.5rem;
-  color: var(--primary);
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--accent);
+  font-size: 1.6rem;
+  color: var(--green-deep);
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green-bright), var(--green-light));
+  border-radius: 2px;
 }
 
 h3 {
-  font-size: 1.1rem;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+  color: var(--green-deep);
+  margin-bottom: 0.25rem;
 }
 
-/* Day schedule cards */
+/* ── Section spacing ── */
+.section {
+  margin-bottom: 3rem;
+}
+
+.section-intro {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+/* ── Day schedule blocks ── */
 .day-section {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .day-header {
-  background: var(--primary);
-  color: #fff;
-  padding: 0.5rem 1rem;
-  font-size: 1.1rem;
+  background: linear-gradient(135deg, var(--green-mid), var(--green-bright));
+  color: var(--white);
+  padding: 0.6rem 1.25rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.9rem;
   font-weight: 600;
-  border-radius: 6px 6px 0 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 8px 8px 0 0;
 }
 
 .day-events {
+  background: var(--white);
   border: 1px solid var(--border);
   border-top: none;
-  border-radius: 0 0 6px 6px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 8px var(--shadow);
 }
 
-/* Event cards */
+/* ── Event cards ── */
 .event-card {
-  background: var(--card-bg);
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--green-wash);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
 }
 
 .event-card:last-child {
   border-bottom: none;
-  border-radius: 0 0 6px 6px;
+}
+
+.event-info {
+  flex: 1;
 }
 
 .event-name {
@@ -126,117 +210,201 @@ h3 {
 }
 
 .event-venue {
-  color: var(--accent);
-  font-weight: 500;
-  font-size: 0.9rem;
+  color: var(--green-bright);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
 }
 
 .event-time {
-  color: var(--text-light);
-  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 .event-description {
   color: var(--text-light);
   font-size: 0.9rem;
-  margin-top: 0.25rem;
+  margin-top: 0.15rem;
 }
 
 .event-address {
-  color: var(--text-light);
+  color: var(--text-muted);
   font-size: 0.8rem;
   font-style: italic;
+  margin-top: 0.1rem;
 }
 
-/* Special events list */
+/* ── Special event cards ── */
 .special-event {
-  background: var(--card-bg);
+  background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  padding: 1.25rem;
   margin-bottom: 1rem;
   display: flex;
   gap: 1.25rem;
   align-items: flex-start;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.special-event:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--shadow);
 }
 
 .event-date-badge {
-  background: var(--primary);
-  color: #fff;
-  border-radius: 6px;
-  padding: 0.5rem 0.75rem;
+  background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+  color: var(--white);
+  border-radius: 10px;
+  padding: 0.6rem 0.75rem;
   text-align: center;
-  min-width: 70px;
+  min-width: 72px;
   flex-shrink: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .event-date-badge .month {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--green-pale);
 }
 
 .event-date-badge .day {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.7rem;
+  font-weight: 800;
   line-height: 1.2;
 }
 
 .event-date-badge .year {
-  font-size: 0.7rem;
-  opacity: 0.8;
+  font-size: 0.65rem;
+  opacity: 0.75;
 }
 
 .event-details {
   flex: 1;
 }
 
-/* Venue cards */
+.event-details .event-name {
+  font-size: 1.05rem;
+}
+
+/* ── Venue cards ── */
 .venue-card {
-  background: var(--card-bg);
+  background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1.25rem;
-  margin-bottom: 1rem;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  border-left: 4px solid var(--green-bright);
 }
 
 .venue-card h3 {
-  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.15rem;
 }
 
 .venue-card .venue-address {
-  color: var(--text-light);
+  color: var(--text-muted);
   font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-style: italic;
 }
 
 .venue-card .venue-regulars {
   font-size: 0.9rem;
+  line-height: 1.8;
 }
 
-/* Homepage sections */
-.section {
-  margin-bottom: 2.5rem;
+.venue-card .venue-regulars strong {
+  color: var(--green-deep);
 }
 
-.section-intro {
-  color: var(--text-light);
-  margin-bottom: 1.5rem;
+.venue-card a {
+  color: var(--green-bright);
+  text-decoration: none;
+  font-weight: 500;
 }
 
-/* Footer */
+.venue-card a:hover {
+  color: var(--green-mid);
+  text-decoration: underline;
+}
+
+/* ── Links ── */
+a {
+  color: var(--green-mid);
+}
+
+a:hover {
+  color: var(--green-dark);
+}
+
+main a {
+  font-weight: 500;
+}
+
+/* ── View all link ── */
+.view-all {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(135deg, var(--green-mid), var(--green-bright));
+  color: var(--white) !important;
+  text-decoration: none !important;
+  border-radius: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s;
+}
+
+.view-all:hover {
+  opacity: 0.9;
+  color: var(--white) !important;
+}
+
+/* ── Footer ── */
 .site-footer {
-  background: var(--primary);
-  color: #fff;
-  padding: 1.5rem 0;
+  background: var(--green-dark);
+  color: var(--green-pale);
+  padding: 2rem 0;
   text-align: center;
   font-size: 0.85rem;
-  opacity: 0.9;
   margin-top: 2rem;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+.site-footer .attribution {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.site-footer a {
+  color: var(--green-light);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .site-title {
+    font-size: 1.8rem;
+  }
+
+  .header-content {
+    padding: 2rem 0 1.25rem;
+  }
+
+  .site-nav a {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.75rem;
+  }
+
   .special-event {
     flex-direction: column;
     gap: 0.75rem;
@@ -247,10 +415,15 @@ h3 {
     gap: 0.5rem;
     align-items: baseline;
     min-width: auto;
+    padding: 0.4rem 0.75rem;
   }
 
-  .site-header nav {
-    flex-wrap: wrap;
-    gap: 1rem;
+  .event-card {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
   }
 }

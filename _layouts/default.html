@@ -6,19 +6,27 @@
   <title>{{ page.title | default: site.title }}</title>
   <meta name="description" content="{{ site.description }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="site-header">
-    <div class="container">
-      <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-      <p class="site-tagline">{{ site.description }}</p>
-      <nav>
+    <div class="hero-image"></div>
+    <div class="header-content">
+      <div class="container">
+        <h1 class="site-title"><a href="{{ '/' | relative_url }}">Angra Events</a></h1>
+        <p class="site-tagline">What's happening in Angra do Hero&iacute;smo, Terceira</p>
+      </div>
+    </div>
+    <nav class="site-nav">
+      <div class="container">
         <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/weekly' | relative_url }}">Weekly Events</a>
+        <a href="{{ '/weekly' | relative_url }}">Weekly</a>
         <a href="{{ '/special' | relative_url }}">Special Events</a>
         <a href="{{ '/venues' | relative_url }}">Venues</a>
-      </nav>
-    </div>
+      </div>
+    </nav>
   </header>
 
   <main class="container">
@@ -27,7 +35,8 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>Angra Events &mdash; A community guide to what's happening in Angra do Hero&iacute;smo, Terceira, A&ccedil;ores</p>
+      <p>Angra Events &mdash; A community guide to Angra do Hero&iacute;smo, Terceira, A&ccedil;ores</p>
+      <p class="attribution">Hero photo by <a href="https://commons.wikimedia.org/wiki/File:Angra_do_Hero%C3%ADsmo_-_Sicht_vom_Obelisken_auf_Stadt_und_Hafenbucht_mit_Monte_Brasil.JPG">Franzfoto</a> / CC BY-SA 3.0</p>
     </div>
   </footer>
 </body>

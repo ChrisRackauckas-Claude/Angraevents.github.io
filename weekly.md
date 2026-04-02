@@ -13,13 +13,15 @@ title: Weekly Events - Angra Events
   <div class="day-events">
     {% for event in day.events %}
     <div class="event-card">
-      <div class="event-name">{{ event.name }}</div>
-      <div class="event-venue">{{ event.venue }}</div>
+      <div class="event-info">
+        <div class="event-name">{{ event.name }}</div>
+        <div class="event-venue">{{ event.venue }}</div>
+        <div class="event-description">{{ event.description }}</div>
+        {% if event.address %}
+        <div class="event-address">{{ event.address }}</div>
+        {% endif %}
+      </div>
       <div class="event-time">{{ event.time }}</div>
-      <div class="event-description">{{ event.description }}</div>
-      {% if event.address %}
-      <div class="event-address">{{ event.address }}</div>
-      {% endif %}
     </div>
     {% endfor %}
   </div>
